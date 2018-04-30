@@ -47,13 +47,6 @@ A school should have a roster, which should be an empty dictionary upon initiali
 school.roster() #{}
 ```
 
-
-
-
-    {}
-
-
-
 ### Part 3:
 You should be able to add a student to the school by calling the add_student method and giving it an argument of the student's name and their grade.
 
@@ -62,13 +55,6 @@ You should be able to add a student to the school by calling the add_student met
 school.add_student("Peter Piper", 12)
 school.roster() #{"12": ["Peter Piper"]}
 ```
-
-
-
-
-    {12: ['Peter Piper']}
-
-
 
 > **Hint:** if the dictionary starts out empty, how will we add keys which initially point to empty lists as their value? Let's look at an example below:
 
@@ -99,13 +85,6 @@ new_dict[10].append("Timmy Turner")
 new_dict
 ```
 
-
-
-
-    {10: ['Timmy Turner']}
-
-
-
 Awesome! So, we now know how to add a key and set its initial value when the key does not yet exist in our dictionary.
 
 Remember, next time we add a student from grade `10` we do not want to reinitialize our list, we just want to add the name to the list that already exists. 
@@ -127,16 +106,6 @@ school.add_student("Bethany Hamilton", 11)
 school.roster() # {9: ["Kelly Slater"], 10: ["Tony Hawk", "Ryan Sheckler"], 11: ["Bethany Hamilton"], 12: ["Peter Piper"]}
 ```
 
-
-
-
-    {9: ['Kelly Slater'],
-     10: ['Tony Hawk', 'Ryan Sheckler'],
-     11: ['Bethany Hamilton'],
-     12: ['Peter Piper']}
-
-
-
 ### Part 4:
 Next, define a method called `grade`, which should take in an argument of a grade and return a list of all the students in that grade:
 
@@ -145,10 +114,6 @@ Next, define a method called `grade`, which should take in an argument of a grad
 print(school.grade(10)) # ["Tony Hawk", "Ryan Sheckler"]
 print(school.grade(12)) # ["Peter Piper"]
 ```
-
-    ['Tony Hawk', 'Ryan Sheckler', 'Tony Hawk']
-    ['Peter Piper']
-
 
 ### Part 5:
 Define a method called `sort_roster` that returns the school's roster where the strings in the student arrays are sorted alphabetically. For instance:
@@ -160,16 +125,6 @@ Define a method called `sort_roster` that returns the school's roster where the 
 ```python
 school.sort_roster()
 ```
-
-
-
-
-    {9: ['Kelly Slater'],
-     10: ['Ryan Sheckler', 'Tony Hawk', 'Tony Hawk'],
-     11: ['Bethany Hamilton'],
-     12: ['Peter Piper']}
-
-
 
 ## Summary
 In this lab, we were able to mimic a complex domain model using a School class with a few instance methods and variables. Soon we will see that our domain models will use other classes, instance methods, and instance variables to create more functionality in our programs.
