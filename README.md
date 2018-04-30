@@ -23,6 +23,12 @@ In this lab, we will be using a school as our domain model.
 ### Part 1:
 Create a class, School, in the school.py file in your local directory that can be initialized with a name. The School class would be referred to as a "model" in the domain model context.
 
+> **Note:** you may want to load the autoreload extension from IPython
+```python
+%load_ext autoreload
+%autoreload 2
+```
+
 
 ```python
 from school import School
@@ -30,7 +36,7 @@ from school import School
 
 
 ```python
-school = School.new("Middletown High School")
+school = School("Middletown High School")
 ```
 
 ### Part 2:
@@ -41,6 +47,13 @@ A school should have a roster, which should be an empty dictionary upon initiali
 school.roster() #{}
 ```
 
+
+
+
+    {}
+
+
+
 ### Part 3:
 You should be able to add a student to the school by calling the add_student method and giving it an argument of the student's name and their grade.
 
@@ -49,6 +62,13 @@ You should be able to add a student to the school by calling the add_student met
 school.add_student("Peter Piper", 12)
 school.roster() #{"12": ["Peter Piper"]}
 ```
+
+
+
+
+    {12: ['Peter Piper']}
+
+
 
 > **Hint:** if the dictionary starts out empty, how will we add keys which initially point to empty lists as their value? Let's look at an example below:
 
@@ -59,22 +79,16 @@ new_dict = {}
 
 We start out with our empty dictionary and we want to add a student from the 10th grade, Timmy Turner, to our dictionary. The number `10` will be the key and it should point to an array containing the string `"Timmy Turner"`. Let's see if we can create a new key and add the name at the same time.
 
-
-```python
+```pyhon
 new_dict[10].append("Timmy Turner")
+
+-------------------------------------------------------------------
+KeyError                          Traceback (most recent call last)
+<ipython-input-37-e74b24b6fe3b> in <module>()
+----> 1 new_dict[10].append("Timmy Turner")
+
+KeyError: 10
 ```
-
-
-    -------------------------------------------------------------------
-
-    KeyError                          Traceback (most recent call last)
-
-    <ipython-input-16-e74b24b6fe3b> in <module>()
-    ----> 1 new_dict[10].append("Timmy Turner")
-    
-
-    KeyError: 10
-
 
 Okay, so we see we get a KeyError because our dictionary doesn't yet have the key `10`, so, we can't just directly operate on it. So, to start we have to add the key and set an initial value for it.
 
@@ -84,6 +98,13 @@ new_dict[10] = []
 new_dict[10].append("Timmy Turner")
 new_dict
 ```
+
+
+
+
+    {10: ['Timmy Turner']}
+
+
 
 Awesome! So, we now know how to add a key and set its initial value when the key does not yet exist in our dictionary.
 
@@ -106,14 +127,28 @@ school.add_student("Bethany Hamilton", 11)
 school.roster() # {9: ["Kelly Slater"], 10: ["Tony Hawk", "Ryan Sheckler"], 11: ["Bethany Hamilton"], 12: ["Peter Piper"]}
 ```
 
+
+
+
+    {9: ['Kelly Slater'],
+     10: ['Tony Hawk', 'Ryan Sheckler'],
+     11: ['Bethany Hamilton'],
+     12: ['Peter Piper']}
+
+
+
 ### Part 4:
 Next, define a method called `grade`, which should take in an argument of a grade and return a list of all the students in that grade:
 
 
 ```python
-school.grade(10) # ["Tony Hawk", "Ryan Sheckler"]
-school.grade(12) # ["Peter Piper"]
+print(school.grade(10)) # ["Tony Hawk", "Ryan Sheckler"]
+print(school.grade(12)) # ["Peter Piper"]
 ```
+
+    ['Tony Hawk', 'Ryan Sheckler', 'Tony Hawk']
+    ['Peter Piper']
+
 
 ### Part 5:
 Define a method called `sort_roster` that returns the school's roster where the strings in the student arrays are sorted alphabetically. For instance:
@@ -125,6 +160,16 @@ Define a method called `sort_roster` that returns the school's roster where the 
 ```python
 school.sort_roster()
 ```
+
+
+
+
+    {9: ['Kelly Slater'],
+     10: ['Ryan Sheckler', 'Tony Hawk', 'Tony Hawk'],
+     11: ['Bethany Hamilton'],
+     12: ['Peter Piper']}
+
+
 
 ## Summary
 In this lab, we were able to mimic a complex domain model using a School class with a few instance methods and variables. Soon we will see that our domain models will use other classes, instance methods, and instance variables to create more functionality in our programs.
