@@ -50,5 +50,81 @@ school.add_student("Peter Piper", 12)
 school.roster() #{"12": ["Peter Piper"]}
 ```
 
-## Summary
+> **Hint:** if the dictionary starts out empty, how will we add keys which initially point to empty lists as their value? Let's look at an example below:
 
+
+```python
+new_dict = {}
+```
+
+We start out with our empty dictionary and we want to add a student from the 10th grade, Timmy Turner, to our dictionary. The number `10` will be the key and it should point to an array containing the string `"Timmy Turner"`. Let's see if we can create a new key and add the name at the same time.
+
+
+```python
+new_dict[10].append("Timmy Turner")
+```
+
+
+    -------------------------------------------------------------------
+
+    KeyError                          Traceback (most recent call last)
+
+    <ipython-input-16-e74b24b6fe3b> in <module>()
+    ----> 1 new_dict[10].append("Timmy Turner")
+    
+
+    KeyError: 10
+
+
+Okay, so we see we get a KeyError because our dictionary doesn't yet have the key `10`, so, we can't just directly operate on it. So, to start we have to add the key and set an initial value for it.
+
+
+```python
+new_dict[10] = []
+new_dict[10].append("Timmy Turner")
+new_dict
+```
+
+Awesome! So, we now know how to add a key and set its initial value when the key does not yet exist in our dictionary.
+
+Remember, next time we add a student from grade `10` we do not want to reinitialize our list, we just want to add the name to the list that already exists. 
+
+
+```python
+# add Sofia Santana to grade 10
+new_dict[10].append("Sofia Santana")
+```
+
+Now write the class function, `add_student` that takes in the grade and the name of the student and adds them to the school's roster and returns the new roster.
+
+
+```python
+school.add_student("Kelly Slater", 9)
+school.add_student("Tony Hawk", 10)
+school.add_student("Ryan Sheckler", 10)
+school.add_student("Bethany Hamilton", 11)
+school.roster # {9: ["Kelly Slater"], 10: ["Tony Hawk", "Ryan Sheckler"], 11: ["Bethany Hamilton"], 12: ["Peter Piper"]}
+```
+
+### Part 4:
+Next, define a method called `grade`, which should take in an argument of a grade and return a list of all the students in that grade:
+
+
+```python
+school.grade(10) # ["Tony Hawk", "Ryan Sheckler"]
+school.grade(12) # ["Peter Piper"]
+```
+
+### Part 5:
+Define a method called `sort_roster` that returns the school's roster where the strings in the student arrays are sorted alphabetically. For instance:
+`{9: ["Kelly Slater"], 10: ["Ryan Sheckler", "Tony Hawk"], 11: ["Bethany Hamilton"], 12: ["Peter Piper"]}}`
+
+>**Note:** since dictionaries are unordered, the order of the keys does not matter here, just the order of the student's names within each list.
+
+
+```python
+school.sort_roster()
+```
+
+## Summary
+In this lab, we were able to mimic a complex domain model using a School class with a few class methods and class variables. Soon we will see that our domain models will use other classes, instance methods, and instance variables to create more functionality in our programs.
