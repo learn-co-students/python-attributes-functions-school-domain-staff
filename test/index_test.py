@@ -3,30 +3,32 @@ from ipynb.fs.full.index import *
 
 class TestObjectAttributes(unittest.TestCase):
 
-    def test_driver_instance_methods_decorators(self):
-        new_driver = Driver()
-        new_driver.first = "Ron"
-        new_driver.last = "Burgundy"
-        new_driver.miles_driven = 20
-        new_driver.rating = 3.0
-        self.assertEqual(new_driver._first, "Ron")
-        self.assertEqual(new_driver.first, "Ron")
-        self.assertEqual(new_driver._last, "Burgundy")
-        self.assertEqual(new_driver.last, "Burgundy")
-        self.assertEqual(new_driver._miles_driven, 20)
-        self.assertEqual(new_driver.miles_driven, 20)
-        self.assertEqual(new_driver._rating, 3.0)
-        self.assertEqual(new_driver.rating, 3.0)
+    def test_school_class(self):
+        self.assertEqual(type(school), type(School()))
 
-    def test_passenger_instance_methods_decorators(self):
-        new_passenger = Passenger()
-        new_passenger.first = "Melissa"
-        new_passenger.last = "Morris"
-        new_passenger.email = "melissa.morris@gmail.com"
-        self.assertEqual(new_passenger._first, "Melissa")
-        self.assertEqual(new_passenger.first, "Melissa")
-        self.assertEqual(new_passenger._last, "Morris")
-        self.assertEqual(new_passenger.last, "Morris")
-        self.assertEqual(new_passenger._email, "melissa.morris@gmail.com")
-        self.assertEqual(new_passenger.email, "melissa.morris@gmail.com")
-        self.assertEqual(new_passenger.yell_name(), "MELISSA MORRIS")
+    def test_school_roster_method(self):
+        example = School()
+        self.assertEqual(example.roster(), {})
+
+    def test_school_add_student_method(self):
+        example = School()
+        example.add_student("Napolean Dynamite", 11)
+        self.assertEqual(example.roster(), {11: ["Napolean Dynamite"]})
+
+    def test_school_grade_method(self):
+        example = School()
+        example.add_student("Napolean Dynamite", 11)
+        example.add_student("Pedro", 11)
+        example.add_student("Deb", 11)
+        self.assertItemsEqual(example.grade(11), ["Napolean Dynamite", "Pedro", "Deb"])
+
+    def test_school_sort_roster_method(self):
+        example = School()
+        example.add_student("Napolean Dynamite", 11)
+        example.add_student("Pedro", 11)
+        example.add_student("Deb", 11)
+        example.add_student("Ron Burgundy", 10)
+        example.add_student("Veronica Corningstone", 10)
+        example.add_student("Brick Tamland", 10)
+        example.add_student("Brian Fantana", 9)
+        self.assertEqual(example.sort_roster(), {11: ["Pedro", "Deb", "Napolean Dynamite"], 9: ["Brick Tamland", "Ron Burgundy", "Veronica Corningstone"], 9: ["Brian Fantana"]})

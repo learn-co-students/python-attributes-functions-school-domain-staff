@@ -103,7 +103,7 @@ school.add_student("Kelly Slater", 9)
 school.add_student("Tony Hawk", 10)
 school.add_student("Ryan Sheckler", 10)
 school.add_student("Bethany Hamilton", 11)
-school.roster # {9: ["Kelly Slater"], 10: ["Tony Hawk", "Ryan Sheckler"], 11: ["Bethany Hamilton"], 12: ["Peter Piper"]}
+school.roster() # {9: ["Kelly Slater"], 10: ["Tony Hawk", "Ryan Sheckler"], 11: ["Bethany Hamilton"], 12: ["Peter Piper"]}
 ```
 
 ### Part 4:
@@ -127,4 +127,4 @@ school.sort_roster()
 ```
 
 ## Summary
-In this lab, we were able to mimic a complex domain model using a School class with a few class methods and class variables. Soon we will see that our domain models will use other classes, instance methods, and instance variables to create more functionality in our programs.
+In this lab, we were able to mimic a complex domain model using a School class with a few instance methods and variables. Soon we will see that our domain models will use other classes, instance methods, and instance variables to create more functionality in our programs.
