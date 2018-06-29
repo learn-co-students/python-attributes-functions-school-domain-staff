@@ -1,4 +1,4 @@
 class School:
-    def __init__(self, name, dictionary={}):
+    def __init__(self, name, roster={}):
         self.name = name
-        self.dictionary = dictionary
+        self.roster = roster
