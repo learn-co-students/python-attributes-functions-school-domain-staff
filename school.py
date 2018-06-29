@@ -13,11 +13,11 @@ class School:
             self._roster[grade] = [name]
         return self._roster
 
-    def grade(student_grade):
+    def grade(self, student_grade):
         return self._roster[student_grade]
 
     def sort_roster(self):
-        new_dict = copy.deepcopy(self._roster)
+        new_dict = self._roster
         for key in new_dict:
             new_dict[key].sort()
         return new_dict
