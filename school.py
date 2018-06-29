@@ -10,7 +10,7 @@ class School:
         if grade in self._roster:
             self._roster[grade].append(name)
         else:
-            self._roster[grade] = name
+            self._roster[grade] = [name]
         return self._roster
 
     def grade(student_grade):
